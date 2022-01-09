@@ -8,7 +8,7 @@ namespace MonopolyTest
     public class PlayerTest
     {
         [TestMethod]
-        public void ShowTest()
+        public void RollTheDiceTest()
         {
             Player p1 = new Player("test", new StandardPosition());
             int x = p1.RollTheDice();
