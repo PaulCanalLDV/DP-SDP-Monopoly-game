@@ -65,12 +65,32 @@ namespace Monopoly
         }
         public Board_game()
         {
-            head = new Position(0);
+            MyPositionFactory posFact = new MyPositionFactory();
+            head = posFact.createPosition(PositionType.STANDARD);
+            head.number = 0;
             Position current = head;
             for (int i = 1; i < 40; i++)
             {
-                current.next = new Position(i);
-                current = current.next;
+                switch(i)
+                {
+                    case (10):
+                        current.next = posFact.createPosition(PositionType.JAIL);
+                        current = current.next;
+                        current.number = i;
+                        break;
+
+                    case (30):
+                        current.next = posFact.createPosition(PositionType.GOTOJAIL);
+                        current = current.next;
+                        current.number = i;
+                        break;
+
+                    default:
+                        current.next = posFact.createPosition(PositionType.STANDARD);
+                        current = current.next;
+                        current.number = i;
+                        break;
+                }
             }
             ConnectHeadLast();
         }
@@ -89,6 +109,7 @@ namespace Monopoly
             for (int i = 0; i < 40; i++)
             {
                 current.Show();
+                Console.WriteLine(current.GetType());
                 current = current.next;
             }
         }

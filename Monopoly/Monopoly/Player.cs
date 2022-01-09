@@ -9,13 +9,12 @@ namespace Monopoly
     class Player
     {
         private string name;
-        private int position;
-        private bool jailed;
+        private int position = 0;
+        private bool jailed = false;
         private int nbDouble = 3;
 
         public Player(string name)
         {
-
             this.name = name;
         }
 
@@ -62,7 +61,7 @@ namespace Monopoly
         }
         public void Show()
         {
-            Console.WriteLine(name);
+            Console.WriteLine(name + " " + position + " " + jailed + " " + nbDouble);
         }
     }
 }

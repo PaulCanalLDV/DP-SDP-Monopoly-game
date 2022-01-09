@@ -16,15 +16,15 @@ namespace Monopoly
 
         public static GoToJail GetGoToJail()
         {
-            // Support multithreaded applications through
-            // 'Double checked locking' pattern which (once
-            // the instance exists) avoids locking each
-            // time the method is invoked            return instance;
             if (instance == null)
             {
                 instance = new GoToJail();
             }
             return instance;
+        }
+        public override void Show()
+        {
+            Console.WriteLine("GoToJail (30)");
         }
     }
 }

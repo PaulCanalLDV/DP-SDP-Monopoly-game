@@ -8,8 +8,14 @@ namespace Monopoly
 {
     class Players : Aggregate
     {
-        List<Player> list;
+        public List<Player> list = new List<Player>();
 
+        public Players() { }
+
+        public void AddPlayer(Player player)
+        {
+            list.Add(player);
+        }
         public PlayerIterator CreateIterator()
         {
             return new PlayerIterator(this);
@@ -30,6 +36,22 @@ namespace Monopoly
             get
             {
                 return list[index];
+            }
+        }
+        public Player this[Player p]
+        {
+            get
+            {
+                return list.IndexOf(p);
+            }
+        }
+
+        public void Show()
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine("Joueur n°" + i);
+                list[i].Show();
             }
         }
     }

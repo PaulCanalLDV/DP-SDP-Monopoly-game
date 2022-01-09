@@ -10,11 +10,9 @@ namespace Monopoly
     class Jail : Position
     {
         static Jail instance;
-        public List<Player> listPlayersInJail { get; set; }
 
         protected Jail() : base(10) // the jail is always at the 11nth position, so position 10
         {
-            listPlayersInJail = null;
         }
 
         public static Jail GetJail()
@@ -24,6 +22,11 @@ namespace Monopoly
                 instance = new Jail();
             }
             return instance;
+        }
+
+        public override void Show()
+        {
+            Console.WriteLine("Jail (10)");
         }
     }
 }

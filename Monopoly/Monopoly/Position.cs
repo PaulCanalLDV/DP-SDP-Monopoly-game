@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-    class Position
+    abstract class Position
     {
         public int number { get; set; }
-        public List<Player> list { get; set; }
         public Position next { get; set; }
 
+        public Position()
+        {
+        }
         public Position(int num)
         {
             number = num;
-            list = null;
             next = null;
         }
-        public void Show()
+        public virtual void Show()
         {
             Console.WriteLine(number);
-            Console.WriteLine("test");
         }
     }
 }
