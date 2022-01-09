@@ -8,8 +8,11 @@ namespace MonopolyTest
     public class PlayerTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ShowTest()
         {
+            Player p1 = new Player("test", new StandardPosition());
+            int x = p1.RollTheDice();
+            Assert.IsTrue(2 <= x && x <= 12);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-    class GoToJail : Position
+    public class GoToJail : Position
     {
         static GoToJail instance;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-    class StandardPosition : Position
+    public class StandardPosition : Position
     {
         public StandardPosition() : base()
         {

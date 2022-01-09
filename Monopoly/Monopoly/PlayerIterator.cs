@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-    class PlayerIterator : Iterator
+    public class PlayerIterator : Iterator
     {
         private Players pList;
-        private Player current;
+        public Player current;
         private int currNum;
 
         public PlayerIterator(Players pList)
@@ -31,12 +31,14 @@ namespace Monopoly
 
         public Player Next()
         {
-            if (current != null || pList[current] == pList.length() - 1)
+            if (current == null || pList[current] == pList.length() - 1)
             {
+                //Console.WriteLine("t1");
                 current = pList.head();
             }
             else
             {
+                //Console.WriteLine("t2");
                 current = pList[pList[current] + 1];
             }
             return current;

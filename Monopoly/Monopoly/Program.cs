@@ -23,6 +23,9 @@ namespace Monopoly
             Console.WriteLine(a == l[0]);
             */
             Game g = new Game();
+            Console.WriteLine("Number of turns :");
+            int nb = Convert.ToInt32(Console.ReadLine());
+            g.Launch(nb);
             Console.ReadKey();
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-    class Players : Aggregate
+    public class Players : Aggregate
     {
         public List<Player> list = new List<Player>();
 
@@ -50,7 +50,7 @@ namespace Monopoly
         {
             for (int i = 0; i < list.Count; i++)
             {
-                Console.WriteLine("Joueur n°" + i);
+                Console.WriteLine("Joueur n°" + (i + 1));
                 list[i].Show();
             }
         }

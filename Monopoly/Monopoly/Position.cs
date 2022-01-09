@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-    abstract class Position
+    public abstract class Position
     {
         public int number { get; set; }
         public Position next { get; set; }
+        public List<Player> list { get; set; } = new List<Player>();
 
         public Position()
         {
@@ -18,6 +19,14 @@ namespace Monopoly
         {
             number = num;
             next = null;
+        }
+        public void AddPlayer(Player p)
+        {
+            list.Add(p);
+        }
+        public void RemovePlayer(Player p)
+        {
+            list.Remove(p);
         }
         public virtual void Show()
         {

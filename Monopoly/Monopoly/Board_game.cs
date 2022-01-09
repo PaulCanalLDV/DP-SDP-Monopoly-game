@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-    class Board_game
+    public class Board_game
     {
         protected Position head;
 
@@ -102,11 +102,19 @@ namespace Monopoly
         public Position MoveForward(int n, Position p)
         {
             Position current = p;
-            for (int i = 0; i <= n; i++)
+            for (int i = 1; i <= n; i++)
             {
                 current = current.next;
             }
             return current;
+        }
+        public Position Jail()
+        {
+            return GetPosition(10);
+        }
+        public Position GoToJail()
+        {
+            return GetPosition(30);
         }
         public void Show()
         {

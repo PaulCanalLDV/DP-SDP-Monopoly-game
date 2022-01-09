@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-    class Player
+    public class Player
     {
         private string name;
         private Position position;
-        private bool jailed = false;
+        private int jailed = 0;
         private int nbDouble = 3;
 
         public Player(string name, Position pos0)
@@ -28,7 +28,7 @@ namespace Monopoly
             get { return position; }   // get method
             set { position = value; }  // set method
         }
-        public bool Jailed   // property
+        public int Jailed   // property
         {
             get { return jailed; }   // get method
             set { jailed = value; }  // set method
@@ -44,21 +44,38 @@ namespace Monopoly
 
             Random rnd = new Random();
 
-            int dé1 = rnd.Next(1, 6);
-            int dé2 = rnd.Next(1, 6);
+            int dé1 = rnd.Next(1, 7);
+            int dé2 = rnd.Next(1, 7);
+            if (jailed == 0)
+            {
+                dé1 = 6;
+                dé2 = 4;
+            }
             int total = dé1 + dé2;
             if (dé1 == dé2)
             {
                 nbDouble--;
             }
-            Console.WriteLine("dé1 =" + dé1);
-            Console.WriteLine("dé2 =" + dé2);
+            else
+            {
+                nbDouble = 3;
+            }
+            Console.WriteLine("die 1 =" + dé1);
+            Console.WriteLine("die 2 =" + dé2);
 
             return total;
         }
         public void Show()
         {
-            Console.WriteLine(name + " " + position.number + " " + jailed + " " + nbDouble);
+            Console.Write("Name : " + name + " | Position : " + (position.number + 1) + " | ");
+            if (jailed == 0)
+            {
+                Console.WriteLine("Not in jail | Number of doubles : " + nbDouble);
+            }
+            else
+            {
+                Console.WriteLine("In jail for " + jailed + " turns | Number of doubles : " + nbDouble);
+            }
         }
     }
 }
