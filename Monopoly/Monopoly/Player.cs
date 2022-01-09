@@ -46,11 +46,6 @@ namespace Monopoly
 
             int dé1 = rnd.Next(1, 7);
             int dé2 = rnd.Next(1, 7);
-            if (jailed == 0)
-            {
-                dé1 = 6;
-                dé2 = 4;
-            }
             int total = dé1 + dé2;
             if (dé1 == dé2)
             {

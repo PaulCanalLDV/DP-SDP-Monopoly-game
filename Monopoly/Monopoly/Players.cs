@@ -50,7 +50,7 @@ namespace Monopoly
         {
             for (int i = 0; i < list.Count; i++)
             {
-                Console.WriteLine("Joueur n°" + (i + 1));
+                Console.WriteLine("Player n°" + (i + 1));
                 list[i].Show();
             }
         }
