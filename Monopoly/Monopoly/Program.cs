@@ -11,14 +11,18 @@ namespace Monopoly
     {
         static void Main(string[] args)
         {
+            /*
             Player a = new Player("test");
             Player b = new Player("test2");
             Players l = new Players();
             l.AddPlayer(a);
             l.AddPlayer(b);
-            Console.WriteLine(l[l.list.IndexOf(l.head())+1].Name);
-            Console.WriteLine(l[a].Show());
-            //Game g = new Game();
+            Console.WriteLine(l[l[l.head()]+1].Name);
+            a.Show();
+            l[0].Show();
+            Console.WriteLine(a == l[0]);
+            */
+            Game g = new Game();
             Console.ReadKey();
         }
     }

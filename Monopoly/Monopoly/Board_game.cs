@@ -10,6 +10,11 @@ namespace Monopoly
     {
         protected Position head;
 
+        public Position Head
+        {
+            get { return head; }
+        }
+
         public void AddPosition (Position pos)
         {
             if (head == null)

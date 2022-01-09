@@ -19,25 +19,25 @@ namespace Monopoly
 
         public bool HasNext()
         {
-            if (current == null || currNum == pList.length() - 1)
+            if (current == null || pList[current] == pList.length() - 1)
             {
                 return (pList.head() != null);
             }
             else
             {
-                return (pList[currNum + 1] != null);
+                return (pList[pList[current] + 1] != null);
             }
         }
 
         public Player Next()
         {
-            if (current != null || currNum == pList.length() - 1)
+            if (current != null || pList[current] == pList.length() - 1)
             {
                 current = pList.head();
             }
             else
             {
-                current = pList[currNum + 1];
+                current = pList[pList[current] + 1];
             }
             return current;
         }

@@ -9,33 +9,30 @@ namespace Monopoly
     class Player
     {
         private string name;
-        private int position = 0;
+        private Position position;
         private bool jailed = false;
         private int nbDouble = 3;
 
-        public Player(string name)
+        public Player(string name, Position pos0)
         {
             this.name = name;
+            position = pos0;
         }
-
-        public int Position   // property
-        {
-            get { return position; }   // get method
-            set { position = value; }  // set method
-        }
-
-        public bool Jailed   // property
-        {
-            get { return jailed; }   // get method
-            set { jailed = value; }  // set method
-        }
-
         public string Name   // property
         {
             get { return name; }   // get method
             set { name = value; }  // set method
         }
-
+        public Position Position   // property
+        {
+            get { return position; }   // get method
+            set { position = value; }  // set method
+        }
+        public bool Jailed   // property
+        {
+            get { return jailed; }   // get method
+            set { jailed = value; }  // set method
+        }
         public int NbDouble   // property
         {
             get { return nbDouble; }   // get method
@@ -61,7 +58,7 @@ namespace Monopoly
         }
         public void Show()
         {
-            Console.WriteLine(name + " " + position + " " + jailed + " " + nbDouble);
+            Console.WriteLine(name + " " + position.number + " " + jailed + " " + nbDouble);
         }
     }
 }

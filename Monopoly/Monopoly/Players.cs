@@ -38,7 +38,7 @@ namespace Monopoly
                 return list[index];
             }
         }
-        public Player this[Player p]
+        public int this[Player p]
         {
             get
             {
