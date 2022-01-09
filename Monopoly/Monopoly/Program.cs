@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Monopoly
 {
@@ -12,9 +13,9 @@ namespace Monopoly
         {
             int i = 0;
             Player player1 = new Player("Paul");
-            while (i < 100)
+            while (i < 1000)
             {
-                if (player1.NbDouble == -1) // en prison
+                if (player1.NbDouble == -1 || player1.Position == 10 ) // en prison
                 {
                     Console.WriteLine("Joueur 1 est en prison, veuillez lancer le dé.");
                     int b = player1.RollTheDice();
@@ -30,12 +31,14 @@ namespace Monopoly
                     player1.Position += a;
                     Console.WriteLine("Joueur 1 a lancé le dé et a obtenu : " + a);
                     Console.WriteLine("Joueur 1 va jusqu'à la case : " + player1.Position);
+                    Thread.Sleep(200);
                     if (player1.NbDouble == 2)// il a fait un double
                     {
                         int c = player1.RollTheDice();
                         player1.Position += c;
                         Console.WriteLine("Joueur 1 a lancé le dé et a obtenu : " + c);
                         Console.WriteLine("Joueur 1 va jusqu'à la case : " + player1.Position);
+                        Thread.Sleep(200);
                     }
                     if (player1.NbDouble == 1) // il refait un double
                     {
@@ -49,11 +52,22 @@ namespace Monopoly
                         player1.Position = 10; // PRISON FILS DE PUTE
                         player1.NbDouble = -1;
                     }
-                    if (Console.ReadKey().Key != ConsoleKey.Enter)
+                    
+                     if(player1.Position == 30) // si le joueur finit son tour sur la case go to jail ---> go prison
+                    {
+                        player1.Position = 10;
+                    }
+                    if (player1.NbDouble == 1 || player1.NbDouble == 2)
+                    {
+                        player1.NbDouble = 3;
+                    }
+
+                    
+                }
+                if (Console.ReadKey().Key != ConsoleKey.Enter) 
                     {
                         i = i + 1;
                     }
-                }
             }
             Console.ReadKey();
         }

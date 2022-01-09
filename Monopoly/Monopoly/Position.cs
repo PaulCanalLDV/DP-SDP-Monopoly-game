@@ -18,5 +18,10 @@ namespace Monopoly
             list = null;
             next = null;
         }
+        public void Show()
+        {
+            Console.WriteLine(number);
+            Console.WriteLine("test");
+        }
     }
 }

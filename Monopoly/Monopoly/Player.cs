@@ -48,8 +48,8 @@ namespace Monopoly
 
             Random rnd = new Random();
 
-            int dé1 = rnd.Next(0, 6);
-            int dé2 = rnd.Next(0, 6);
+            int dé1 = rnd.Next(1, 6);
+            int dé2 = rnd.Next(1, 6);
             int total = dé1 + dé2;
             if (dé1 == dé2)
             {
@@ -60,6 +60,9 @@ namespace Monopoly
 
             return total;
         }
-
+        public void Show()
+        {
+            Console.WriteLine(name);
+        }
     }
 }
